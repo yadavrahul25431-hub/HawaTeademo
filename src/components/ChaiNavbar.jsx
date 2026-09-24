@@ -14,12 +14,16 @@ const ChaiNavbar = ({ onReserveClick }) => {
   }, []);
 
   const navLinks = [
-    "The Roast & Brew",
-    "Artisanal Chai",
-    "Desi Bites",
-    "Our Heritage",
-    "Order Online"
+    { label: "Our Roots", id: "our-roots" },
+    { label: "Brew Lab", id: "brew-lab" },
+    { label: "Menu", id: "menu" },
+    { label: "Merch", id: "merch" },
+    { label: "Find Us", id: "location" }
   ];
+
+  const handleLogout = () => {
+    window.location.reload();
+  };
 
   return (
     <header 
@@ -45,11 +49,11 @@ const ChaiNavbar = ({ onReserveClick }) => {
           <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a 
-                key={link} 
-                href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
+                key={link.id} 
+                href={`#${link.id}`}
                 className="text-sm font-black font-sans uppercase tracking-widest text-[var(--color-dark)] hover:text-[var(--color-peacock)] hover:-translate-y-1 transition-transform"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
@@ -82,12 +86,12 @@ const ChaiNavbar = ({ onReserveClick }) => {
         <div className="bg-[var(--color-emerald)] border-pop shadow-pop-lg p-6 flex flex-col gap-4">
           {navLinks.map((link) => (
             <a 
-              key={link} 
-              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
+              key={link.id} 
+              href={`#${link.id}`}
               className="text-xl font-black font-sans uppercase text-[var(--color-dark)] hover:text-white py-3 border-b-4 border-[var(--color-dark)]/20"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {link}
+              {link.label}
             </a>
           ))}
           <button 

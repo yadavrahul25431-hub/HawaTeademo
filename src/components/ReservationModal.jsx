@@ -39,7 +39,7 @@ const ReservationModal = ({ isOpen, onClose }) => {
         
         {/* Form Body */}
         <div className="p-8">
-          <form className="flex flex-col gap-6" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
+          <form className="flex flex-col gap-6" onSubmit={(e) => { e.preventDefault(); alert("Your table is reserved! We can't wait to host you."); onClose(); }}>
             
             {/* Date Picker */}
             <div className="flex flex-col gap-2">

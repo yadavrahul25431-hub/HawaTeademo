@@ -8,10 +8,16 @@ import DrinkCrafter from './components/DrinkCrafter';
 import CartDrawer from './components/CartDrawer';
 import OurRoots from './components/OurRoots';
 import MerchShop from './components/MerchShop';
+import ReservationModal from './components/ReservationModal';
+import StaffLogin from './components/StaffLogin';
+import SplashLogin from './components/SplashLogin';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+  const [isStaffLoginOpen, setIsStaffLoginOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Calculate totals
   const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -45,21 +51,25 @@ function App() {
     });
   };
 
+  if (!isAuthenticated) {
+    return <SplashLogin onLogin={() => setIsAuthenticated(true)} />;
+  }
+
   return (
     <div className="bg-[var(--color-bg)] min-h-screen text-[var(--color-dark)] selection:bg-[var(--color-rani)] selection:text-white font-sans">
       
       <ChaiNavbar 
-        onReserveClick={() => console.log('Reserve clicked')}
+        onReserveClick={() => setIsReservationOpen(true)}
       />
       
       <main>
         <NeoHero />
         <ChaiAmbience />
-        <OurRoots />
-        <DrinkCrafter onAddToCart={handleAddToCart} />
-        <ChaiMenu />
-        <MerchShop onAddToCart={handleAddToCart} />
-        <ChaiFeatures />
+        <div id="our-roots"><OurRoots /></div>
+        <div id="brew-lab"><DrinkCrafter onAddToCart={handleAddToCart} /></div>
+        <div id="menu"><ChaiMenu /></div>
+        <div id="merch"><MerchShop onAddToCart={handleAddToCart} /></div>
+        <div id="location"><ChaiFeatures /></div>
       </main>
 
       {/* Footer */}
@@ -70,11 +80,13 @@ function App() {
         <div className="font-black font-sans text-4xl md:text-5xl tracking-widest mb-4 uppercase relative z-10 text-[var(--color-marigold)]">HAWAtea</div>
         <p className="font-sans font-medium text-sm md:text-base uppercase tracking-widest mb-10 text-center max-w-sm relative z-10 opacity-80">Sip the Soul of India.</p>
         <div className="flex gap-6 font-sans text-sm font-black uppercase tracking-widest relative z-10">
-          <a href="#" className="hover:text-[var(--color-rani)] hover:-translate-y-1 transition-all">Instagram</a>
+          <a href="https://instagram.com/hawatea" target="_blank" rel="noreferrer" className="hover:text-[var(--color-rani)] hover:-translate-y-1 transition-all">Instagram</a>
           <span>•</span>
-          <a href="#" className="hover:text-[var(--color-marigold)] hover:-translate-y-1 transition-all">TikTok</a>
+          <a href="https://tiktok.com/@hawatea" target="_blank" rel="noreferrer" className="hover:text-[var(--color-marigold)] hover:-translate-y-1 transition-all">TikTok</a>
           <span>•</span>
-          <a href="#" className="hover:text-[var(--color-emerald)] hover:-translate-y-1 transition-all">Find Us</a>
+          <a href="#location" className="hover:text-[var(--color-emerald)] hover:-translate-y-1 transition-all">Find Us</a>
+          <span>•</span>
+          <button onClick={() => setIsStaffLoginOpen(true)} className="hover:text-[var(--color-peacock)] hover:-translate-y-1 transition-all uppercase tracking-widest">Staff Portal</button>
         </div>
       </footer>
 
@@ -84,6 +96,18 @@ function App() {
         onClose={() => setIsCartOpen(false)}
         cartItems={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
+      />
+
+      {/* Reservation Modal */}
+      <ReservationModal 
+        isOpen={isReservationOpen}
+        onClose={() => setIsReservationOpen(false)}
+      />
+
+      {/* Staff Login Modal */}
+      <StaffLogin 
+        isOpen={isStaffLoginOpen}
+        onClose={() => setIsStaffLoginOpen(false)}
       />
 
     </div>

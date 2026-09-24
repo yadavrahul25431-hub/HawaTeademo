@@ -49,7 +49,7 @@ const OurRoots = () => {
           <div className="md:col-span-5 relative group">
             <div className="relative border-[4px] border-[var(--color-marigold)] rounded-3xl overflow-hidden shadow-[8px_8px_0px_var(--color-marigold)] bg-white p-2 transform -rotate-3 transition-transform group-hover:rotate-0">
               <img 
-                src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=1000&auto=format&fit=crop" 
+                src="/signature_brew.jpg" 
                 alt="Clay Pot Chai" 
                 className="w-full h-[400px] object-cover rounded-2xl grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
               />
@@ -76,7 +76,7 @@ const OurRoots = () => {
           <div className="md:col-span-4 relative group mt-8 md:mt-0">
             <div className="relative border-[4px] border-[var(--color-peacock)] rounded-3xl overflow-hidden shadow-[8px_8px_0px_var(--color-peacock)] bg-white p-2 transform rotate-3 transition-transform group-hover:-rotate-0">
               <img 
-                src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1000&auto=format&fit=crop" 
+                src="/coffee_beans.jpg" 
                 alt="Coffee Beans" 
                 className="w-full h-[300px] object-cover rounded-2xl grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
               />

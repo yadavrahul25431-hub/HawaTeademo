@@ -15,7 +15,7 @@ const MerchShop = ({ onAddToCart }) => {
       id: 'merch-2',
       name: 'Nilgiris Estate Roast (250g)',
       price: 650,
-      image: 'https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop',
+      image: '/coffee_beans.jpg',
       description: 'Whole beans. Notes of dark chocolate and orange zest.',
       category: 'Coffee'
     },
@@ -63,7 +63,10 @@ const MerchShop = ({ onAddToCart }) => {
               The <span className="text-[var(--color-peacock)] line-through decoration-4">Gift</span> <span className="text-[var(--color-rani)]">Stash.</span>
             </h2>
           </div>
-          <button className="flex items-center gap-2 font-black uppercase tracking-widest text-[var(--color-dark)] hover:text-[var(--color-rani)] transition-colors group">
+          <button 
+            onClick={() => alert("Our full merch shop is brewing! Check back soon.")}
+            className="flex items-center gap-2 font-black uppercase tracking-widest text-[var(--color-dark)] hover:text-[var(--color-rani)] transition-colors group"
+          >
             View All Merch
             <ArrowRight size={24} strokeWidth={3} className="group-hover:translate-x-2 transition-transform" />
           </button>

@@ -107,7 +107,9 @@ const ChaiFeatures = () => {
                       Hyderabad, Telangana 500033
                     </p>
                     <a 
-                      href="#" 
+                      href="https://maps.google.com/?q=Jubilee+Hills,+Hyderabad,+Telangana+500033" 
+                      target="_blank"
+                      rel="noreferrer"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-dark)] text-white font-black font-sans uppercase tracking-widest text-sm hover:bg-[var(--color-marigold)] hover:text-[var(--color-dark)] transition-colors border-[2px] border-[var(--color-dark)] rounded-full"
                     >
                       Get Directions

@@ -72,7 +72,10 @@ const NeoHero = () => {
                     />
                   )}
                   
-                  <button className="flex-1 bg-[var(--color-dark)] text-[var(--color-marigold)] border-[2.5px] border-[var(--color-dark)] flex items-center justify-center gap-2 py-3 font-black text-xl uppercase tracking-widest hover:bg-[var(--color-rani)] hover:text-white transition-colors group">
+                  <button 
+                    onClick={() => document.getElementById('customizer')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="flex-1 bg-[var(--color-dark)] text-[var(--color-marigold)] border-[2.5px] border-[var(--color-dark)] flex items-center justify-center gap-2 py-3 font-black text-xl uppercase tracking-widest hover:bg-[var(--color-rani)] hover:text-white transition-colors group"
+                  >
                     ORDER NOW 
                     <ArrowRight size={24} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -89,7 +92,7 @@ const NeoHero = () => {
             {/* The Brutalist Image Card */}
             <div className="relative w-full max-w-[400px] aspect-[4/5] bg-white border-[3px] border-[var(--color-dark)] rounded-xl shadow-brutal-lg overflow-hidden group">
               <img 
-                src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=2937&auto=format&fit=crop" 
+                src="/signature_brew.jpg" 
                 alt="Signature Brew"
                 className="w-full h-full object-cover grayscale-[20%] contrast-125 group-hover:scale-105 transition-transform duration-500"
               />
