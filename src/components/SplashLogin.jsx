@@ -12,7 +12,11 @@ const SplashLogin = ({ onLogin }) => {
     // Simulate network request
     setTimeout(() => {
       setIsLoading(false);
-      onLogin(); // Proceed into the app
+      if (email.endsWith('@hawatea.com')) {
+        onLogin('staff');
+      } else {
+        onLogin('customer');
+      }
     }, 1200);
   };
 

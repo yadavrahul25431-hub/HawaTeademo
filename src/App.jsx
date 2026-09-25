@@ -11,6 +11,7 @@ import MerchShop from './components/MerchShop';
 import ReservationModal from './components/ReservationModal';
 import StaffLogin from './components/StaffLogin';
 import SplashLogin from './components/SplashLogin';
+import StaffDashboard from './components/StaffDashboard';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -18,6 +19,7 @@ function App() {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
   const [isStaffLoginOpen, setIsStaffLoginOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState(null);
 
   // Calculate totals
   const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -51,8 +53,17 @@ function App() {
     });
   };
 
+  const handleLogin = (role) => {
+    setUserRole(role);
+    setIsAuthenticated(true);
+  };
+
   if (!isAuthenticated) {
-    return <SplashLogin onLogin={() => setIsAuthenticated(true)} />;
+    return <SplashLogin onLogin={handleLogin} />;
+  }
+
+  if (userRole === 'staff') {
+    return <StaffDashboard onLogout={() => { setIsAuthenticated(false); setUserRole(null); }} />;
   }
 
   return (

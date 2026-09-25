@@ -36,7 +36,10 @@ const ChaiNavbar = ({ onReserveClick }) => {
           isScrolled ? 'bg-[var(--color-bg)] border-pop shadow-pop' : 'bg-[var(--color-bg)] border-[3px] border-transparent shadow-none'
         }`}>
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer">
+          <div 
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 border-[var(--color-dark)] bg-[var(--color-marigold)] text-[var(--color-dark)] shadow-[2px_2px_0px_var(--color-dark)]`}>
               <Coffee size={24} strokeWidth={2.5} />
             </div>
